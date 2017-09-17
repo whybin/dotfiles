@@ -110,6 +110,8 @@ map <Space> <Leader>
 inoremap jk <Esc>
 inoremap JK <Esc>
 nnoremap <Leader>sv :source ~/.vimrc<Cr>
+" Copy everything to system clipboard
+nnoremap y* ggVG"*y
 
 " -------------
 " }}}
