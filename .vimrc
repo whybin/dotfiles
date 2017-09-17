@@ -1,28 +1,29 @@
 " ------------
 " Vim Plug
 " ------------
-call plug#begin('~/.vim/plugged')  " Plugin directory
+call plug#begin('~/.vim/plugged') " Plugin directory
 
 " Languages/completion
-Plug 'othree/yajs.vim'             " JavaScript Syntax - Do not use with any other
+Plug 'othree/yajs.vim'            " JavaScript Syntax - Do not use with any other
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'Shougo/neocomplete.vim'      " Autocompletion
+Plug 'Shougo/neocomplete.vim'     " Autocompletion
 
 " Formatting
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 
 " Display
-Plug 'arcticicestudio/nord-vim'    " Color scheme
-Plug 'vim-airline/vim-airline'     " Status line
+Plug '~/.vim/forks/Base2Tone-vim' " Color scheme
+Plug 'vim-airline/vim-airline'    " Status line
 Plug 'airblade/vim-gitgutter'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'         " File tree explorer
-Plug 'airblade/vim-rooter'         " Change working directory to project root
+Plug 'scrooloose/nerdtree'        " File tree explorer
+Plug 'airblade/vim-rooter'        " Change working directory to project root
 
-call plug#end()
+call plug#end()                   " Calls `filetype plugin indent on` and `syntax enable`
+" ------------
 
 " Rainbow Parentheses {{{
 augroup rainbow_lisp
