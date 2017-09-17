@@ -65,6 +65,7 @@ let g:easy_align_delimiters = {
 " }}}
 " Color scheme {{{
 colorscheme nord
+set background=dark
 set synmaxcol=200 " Syntax highlighting max chars
 " }}}
 " Airline {{{
