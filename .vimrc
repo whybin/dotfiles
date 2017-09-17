@@ -118,3 +118,24 @@ nnoremap <Leader>sv :source ~/.vimrc<Cr>
 " Change cursor shape between insert and normal mode
 let &t_SI = "\<Esc>[5 q"
 let &t_EI = "\<Esc>[1 q"
+
+" ------------------------
+" Racket Design Recipe {{{
+" ------------------------
+function! EnableRecipeAbbr()
+    noreabbrev //DR ;; Data Definition<cr>
+        \;; Example data:<cr>
+        \;; <cr>
+        \;;<cr>
+        \;; <cr>
+        \;; <cr>
+        \;; input: <cr>
+        \;; output: <cr><cr><cr>
+        \;; Test cases<cr>
+endfunction
+
+au! BufNewFile,BufRead *.rkt call EnableRecipeAbbr()
+
+" ------------------------
+" }}}
+" ------------------------
