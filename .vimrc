@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged') " Plugin directory
 
 " Languages/completion
 Plug 'othree/yajs.vim'            " JavaScript Syntax - Do not use with any other
+Plug 'othree/html5.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'Shougo/neocomplete.vim'     " Autocompletion
 
@@ -21,6 +22,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree'        " File tree explorer
 Plug 'airblade/vim-rooter'        " Change working directory to project root
+
+" Misc
+Plug '~/.vim/forks/vimwiki'
 
 call plug#end()                   " Calls `filetype plugin indent on` and `syntax enable`
 " ------------
