@@ -14,7 +14,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 
 " Display
-Plug '~/.vim/forks/Base2Tone-vim' " Color scheme
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'    " Status line
 Plug 'airblade/vim-gitgutter'
 
