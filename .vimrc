@@ -130,7 +130,26 @@ function! EnableRecipeAbbr()
         \;; <cr>
         \;;<cr>
         \;; <cr>
+        \;;<cr>
+        \;; input: <cr>
+        \;; output: <cr><cr><cr>
+        \;; Test cases
+
+    noreabbrev //LDR ;; Data Definition<cr>
+        \;; Example data:<cr>
         \;; <cr>
+        \;;<cr>
+        \;; A <cr>
+        \;;<cr>
+        \;; Examples:<cr>
+        \(define list0 empty)<cr>
+        \(define list1 (cons _ empty))<cr>
+        \(define list2 (cons _ (cons _ empty)))<cr>
+        \<cr>
+        \;; <cr>
+        \;;<cr>
+        \;; <cr>
+        \;;<cr>
         \;; input: <cr>
         \;; output: <cr><cr><cr>
         \;; Test cases<cr>
