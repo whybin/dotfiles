@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged') " Plugin directory
 " Languages/completion
 Plug 'othree/yajs.vim'            " JavaScript Syntax - Do not use with any other
 Plug 'othree/html5.vim'
+Plug 'digitaltoad/vim-pug'        " Pug template engine syntax
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'Shougo/neocomplete.vim'     " Autocompletion
 
