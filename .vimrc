@@ -128,27 +128,15 @@ let &t_EI = "\<Esc>[1 q"
 function! EnableRecipeAbbr()
     noreabbrev //DR ;; Data Definition<cr>
         \;; Example data:<cr>
-        \;; <cr>
         \;;<cr>
-        \;; <cr>
-        \;;<cr>
-        \;; input: <cr>
-        \;; output: <cr><cr><cr>
-        \;; Test cases
-
-    noreabbrev //LDR ;; Data Definition<cr>
-        \;; Example data:<cr>
-        \;; <cr>
-        \;;<cr>
-        \;; A <cr>
+        \;; A_ _ list is either the empty list or (cons item list),<cr>
+        \;; where item is a_ _ and list is a_ _ list<cr>
         \;;<cr>
         \;; Examples:<cr>
         \(define list0 empty)<cr>
         \(define list1 (cons _ empty))<cr>
         \(define list2 (cons _ (cons _ empty)))<cr>
         \<cr>
-        \;; <cr>
-        \;;<cr>
         \;; <cr>
         \;;<cr>
         \;; input: <cr>
