@@ -110,6 +110,10 @@ map <Space> <Leader>
 
 inoremap jk <Esc>
 inoremap JK <Esc>
+
+" Previously looks up the man page of the command
+nnoremap K k
+
 nnoremap <Leader>sv :source ~/.vimrc<Cr>
 " Copy everything to system clipboard
 nnoremap y* ggVG"+y
