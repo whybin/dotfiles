@@ -9,6 +9,7 @@ Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'        " Pug template engine syntax
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'Shougo/neocomplete.vim'     " Autocompletion
+Plug 'kitao/unity_dict'
 
 " Formatting
 Plug 'tpope/vim-commentary'
@@ -45,6 +46,9 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" }}}
+" Unity dict {{{
+au! BufNewFile,BufRead *.cs execute 'setlocal dictionary+=~/.vim/plugged/unity_dict/unity.dict'
 " }}}
 " Vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -98,6 +102,9 @@ set colorcolumn=80
 set wrap " Line wrap
 
 set foldmethod=marker   " Use {{{ and }}} for code folding
+
+" Autocompletion
+set complete+=k
 
 " -------------
 " Custom remaps {{{
