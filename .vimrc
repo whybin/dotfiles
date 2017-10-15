@@ -159,8 +159,8 @@ function! EnableRecipeAbbr()
         \;;<cr>
         \;; Examples:<cr>
         \(define list0 empty)<cr>
-        \(define list1 (cons _ empty))<cr>
-        \(define list2 (cons _ (cons _ empty)))<cr>
+        \(define list1 (list ))<cr>
+        \(define list2 (list ))<cr>
         \<cr>
         \;; <cr>
         \;;<cr>
