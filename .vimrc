@@ -17,12 +17,10 @@ Plug 'junegunn/vim-easy-align'
 
 " Display
 Plug 'arcticicestudio/nord-vim'
-Plug 'vim-airline/vim-airline'    " Status line
 Plug 'airblade/vim-gitgutter'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'        " File tree explorer
 Plug 'airblade/vim-rooter'        " Change working directory to project root
 
 " Misc
@@ -73,12 +71,6 @@ colorscheme nord
 set background=dark
 set synmaxcol=200 " Syntax highlighting max chars
 " }}}
-" Airline {{{
-let g:airline_section_y=''
-let g:airline_section_z=''
-let g:airline_section_warning=''
-set laststatus=2
-let airline#extensions#default#section_use_groupitems = 0   " Fixes Vim startup issue
 " }}}
 
 set encoding=utf8
