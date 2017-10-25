@@ -190,20 +190,17 @@ function! IndentWord(toBack)
 
     " Setup string and regex
     let lineAbove = getline(line('.') - 1)
-    let wordRgx = '(\w+|[^-a-zA-Z0-9 ]+)'
+    let wordRgx = '\v(\w+|[^-a-zA-Z0-9 ]+)'
     if a:toBack
+        " Ensures gets last occurrence
         let lineAbove = strpart(lineAbove, 0, indentIndex)
         let wordRgx .= ' *$'
-    endif
 
-    let wordRgx = '\v' . wordRgx
-
-    " Setup starting index and count
-    if a:toBack
+        " Setup starting index and count
         let nextIndex = [v:null, indentIndex]
         let i = 0
     else
-        let nextIndex =  matchstrpos(lineAbove, wordRgx, indentIndex)
+        let nextIndex = matchstrpos(lineAbove, wordRgx, indentIndex)
         " Doesn't count if current line is already aligned to a word
         let i = nextIndex[1] > indentIndex ? 1 : 0
     endif
