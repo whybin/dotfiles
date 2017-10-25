@@ -132,41 +132,8 @@ let &t_SI = "\<Esc>[5 q"
 let &t_EI = "\<Esc>[1 q"
 
 " ------------------------
-" Racket Design Recipe {{{
+" Analysis {{{
 " ------------------------
-function! EnableRecipeAbbr()
-    noreabbrev //SDR ;; Data Definition<cr>
-        \;;<cr>
-        \;; A natural number is either zero or the successor of a natural number<cr>
-        \;;<cr>
-        \;; Examples:<cr>
-        \0<cr>
-        \(succ 0) ;; 1<cr>
-        \(succ (succ 0)) ;; 2<cr>
-        \<cr>
-        \;; <cr>
-        \;;<cr>
-        \;; input: <cr>
-        \;; output: <cr><cr><cr>
-        \;; Test cases
-
-    noreabbrev //DR ;; Data Definition<cr>
-        \;;<cr>
-        \;; A_ _ list is either the empty list or (cons item list),<cr>
-        \;; where item is a_ _ and list is a_ _ list<cr>
-        \;;<cr>
-        \;; Examples:<cr>
-        \(define list0 empty)<cr>
-        \(define list1 (list ))<cr>
-        \(define list2 (list ))<cr>
-        \<cr>
-        \;; <cr>
-        \;;<cr>
-        \;; input: <cr>
-        \;; output: <cr><cr><cr>
-        \;; Test cases
-endfunction
-
 function! EnableAnalysisAbbr()
     noreabbrev letp Let P(n) be the greatest number of elementary operations<cr>
                 \used to evaluate the procedure _ applied to a list of any<cr>
@@ -176,7 +143,6 @@ function! EnableAnalysisAbbr()
                 \P(n) <=
 endfunction
 
-au! BufNewFile,BufRead *.rkt call EnableRecipeAbbr()
 au! BufNewFile,BufRead *.txt call EnableAnalysisAbbr()
 
 " ------------------------
