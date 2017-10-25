@@ -172,3 +172,68 @@ augroup END
 " --------
 " }}}
 " --------
+
+" --------------
+" IndentWord {{{
+" --------------
+function! IndentWord(toBack)
+    if line('.') == 1
+        echo 'Cannot align top line'
+        return
+    endif
+
+    let indentIndex = matchstrpos(getline('.'), '\S')[1]
+    if indentIndex == -1
+        echo 'Cannot indent empty line'
+        return
+    endif
+
+    " Setup string and regex
+    let lineAbove = getline(line('.') - 1)
+    let wordRgx = '(\w+|[^-a-zA-Z0-9 ]+)'
+    if a:toBack
+        let lineAbove = strpart(lineAbove, 0, indentIndex)
+        let wordRgx .= ' *$'
+    endif
+
+    let wordRgx = '\v' . wordRgx
+
+    " Setup starting index and count
+    if a:toBack
+        let nextIndex = [v:null, indentIndex]
+        let i = 0
+    else
+        let nextIndex =  matchstrpos(lineAbove, wordRgx, indentIndex)
+        " Doesn't count if current line is already aligned to a word
+        let i = nextIndex[1] > indentIndex ? 1 : 0
+    endif
+
+    " Get new indentation level
+    while i < v:count1
+        if a:toBack
+            let nextIndex = matchstrpos(
+                        \strpart(lineAbove, 0, nextIndex[1]), wordRgx)
+        else
+            let prev = nextIndex[1]
+            let nextIndex = matchstrpos(lineAbove, wordRgx, nextIndex[2])
+
+            if nextIndex[1] == -1
+                let nextIndex[1] = prev
+                break
+            endif
+        endif
+
+        let i += 1
+    endwhile
+
+    " Modify current line
+    let line = substitute(getline('.'), '\v^\s*', repeat(' ', nextIndex[1]), '')
+    call setline('.', line)
+    normal! ^
+endfunction
+
+nnoremap <silent> <Tab>w :<C-u>call IndentWord(0)<cr>
+nnoremap <silent> <Tab>b :<C-u>call IndentWord(1)<cr>
+" --------------
+" }}}
+" --------------
