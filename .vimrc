@@ -176,61 +176,107 @@ augroup END
 " --------------
 " IndentWord {{{
 " --------------
+function! s:GetTextCols(text, rgx, offset)
+    let cols = []
+    let nextIndex = [v:null, v:null, 0]
+
+    while v:true
+        let nextIndex = matchstrpos(a:text, a:rgx, nextIndex[2])
+        if nextIndex[1] == -1
+            break
+        endif
+        call add(cols, nextIndex[1] + a:offset)
+    endwhile
+
+    return cols
+endfunction
+
 function! IndentWord(toBack)
-    if line('.') == 1
+    let startLnum = line('.')
+    if startLnum == 1
         echo 'Cannot align top line'
         return
     endif
 
-    let indentIndex = matchstrpos(getline('.'), '\S')[1]
-    if indentIndex == -1
+    if len(getline('.')) == 0
         echo 'Cannot indent empty line'
         return
     endif
 
-    " Setup string and regex
-    let lineAbove = getline(line('.') - 1)
-    let wordRgx = '\v(\w+|[^-a-zA-Z0-9 ]+)'
-    if a:toBack
-        " Ensures gets last occurrence
-        let lineAbove = strpart(lineAbove, 0, indentIndex)
-        let wordRgx .= ' *$'
+    " Setup vars
+    let lnum = startLnum - 1
+    let cols = []
+    let bounds = [0, 0]
+    let wordRgx = '\v(\w+|[^a-zA-Z0-9 ]+)'
 
-        " Setup starting index and count
-        let nextIndex = [v:null, indentIndex]
-        let i = 0
-    else
-        let nextIndex = matchstrpos(lineAbove, wordRgx, indentIndex)
-        " Doesn't count if current line is already aligned to a word
-        let i = nextIndex[1] > indentIndex ? 1 : 0
-    endif
-
-    " Get new indentation level
-    while i < v:count1
-        if a:toBack
-            let nextIndex = matchstrpos(
-                        \strpart(lineAbove, 0, nextIndex[1]), wordRgx)
-        else
-            let prev = nextIndex[1]
-            let nextIndex = matchstrpos(lineAbove, wordRgx, nextIndex[2])
-
-            if nextIndex[1] == -1
-                let nextIndex[1] = prev
-                break
-            endif
+    " Populate columns
+    while lnum > 0
+        let text = getline(lnum)
+        if len(text) == 0
+            let lnum -= 1
+            continue
         endif
 
-        let i += 1
+        " Left partition
+        let lText = strpart(text, 0, bounds[0])
+        let lCols = s:GetTextCols(lText, wordRgx, 0)
+        if len(lCols) > 0
+            let cols = lCols + cols
+        endif
+
+        " Right partition
+        let rText = strpart(text, bounds[1])
+        let rCols = s:GetTextCols(rText, wordRgx, bounds[1])
+        if len(rCols) > 0
+            let cols += rCols[0] > 0 && rCols[0] == bounds[1]
+                        \? rCols[1:] : rCols
+        endif
+
+        if cols[0] == 0
+            break
+        endif
+
+        let bounds = [cols[0], max([bounds[1], len(text) - 1])]
+        let lnum -= 1
     endwhile
 
+    " Determine new indent column
+    let i = -1
+    let targetFound = v:false
+    let startIndex = matchstrpos(getline('.'), '\S')[1]
+
+    while i < len(cols) - 1
+        let i += 1
+
+        if a:toBack
+            if startIndex > cols[i]
+                continue
+            endif
+            let targetCol = cols[max([0, i - v:count1])]
+        else
+            if startIndex >= cols[i]
+                continue
+            endif
+            let targetCol = cols[min([len(cols), i + v:count1]) - 1]
+        endif
+
+        let targetFound = v:true
+        break
+    endwhile
+
+    if !targetFound
+        return
+    endif
+
     " Modify current line
-    let line = substitute(getline('.'), '\v^\s*', repeat(' ', nextIndex[1]), '')
+    let line = substitute(getline('.'), '\v^\s*', repeat(' ', targetCol), '')
     call setline('.', line)
     normal! ^
 endfunction
 
-nnoremap <silent> <Tab>w :<C-u>call IndentWord(0)<cr>
-nnoremap <silent> <Tab>b :<C-u>call IndentWord(1)<cr>
+nnoremap <silent> \w :<C-U>call IndentWord(v:false)<CR>
+nnoremap <silent> \b :<C-U>call IndentWord(v:true)<CR>
+
 " --------------
 " }}}
 " --------------
