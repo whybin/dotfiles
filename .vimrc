@@ -133,32 +133,17 @@ nnoremap y* ggVG"+y''
 let &t_SI = "\<Esc>[5 q"
 let &t_EI = "\<Esc>[1 q"
 
-" ------------------------
-" Analysis {{{
-" ------------------------
-function! EnableAnalysisAbbr()
-    noreabbrev letp Let P(n) be the greatest number of elementary operations<cr>
-                \used to evaluate the procedure _ applied to a list of any<cr>
-                \length n.<cr>
-                \<cr>
-                \P(0) = A<cr>
-                \P(n) <=
-endfunction
-
-au! BufNewFile,BufRead *.txt call EnableAnalysisAbbr()
-
-" ------------------------
-" }}}
-" ------------------------
-
 " --------
 " OCaml {{{
 " --------
 function! EnableOcamlRecipe()
-    noreabbrev _DR #use "CS17setup.ml";;<cr><cr>
+    noreabbrev _DR #use "CS17setup.ml" ;;<cr><cr>
+                \(* Data Definitions<cr>
+                \_ *)<cr><cr>
+                \(* Examples *)<cr><cr>
                 \(* Inputs: _ *)<cr>
                 \(* Outputs: _ *)<cr><cr><cr>
-                \"Test cases for _:";;
+                \"Test cases for _:" ;;
 endfunction
 
 function! PrepareOcaml()
