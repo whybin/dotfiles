@@ -21,7 +21,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'airblade/vim-rooter'        " Change working directory to project root
 
 " Misc
 Plug '~/.vim/forks/vimwiki'
