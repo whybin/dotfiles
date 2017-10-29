@@ -47,6 +47,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Unity dict {{{
 au! BufNewFile,BufRead *.cs execute 'setlocal dictionary+=~/.vim/plugged/unity_dict/unity.dict'
 " }}}
+" Vim Commentary {{{
+au! FileType ocaml setlocal commentstring=(*\ %s\ *)
+" }}}
 " Vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
