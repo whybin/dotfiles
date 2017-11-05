@@ -31,7 +31,7 @@ call plug#end()                   " Calls `filetype plugin indent on` and `synta
 " Rainbow Parentheses {{{
 augroup rainbow_lisp
   autocmd!
-  autocmd FileType lisp,clojure,scheme RainbowParentheses
+  autocmd FileType lisp,clojure,scheme,ocaml RainbowParentheses
 augroup END
 " }}}
 " Neoclomplete {{{
@@ -153,6 +153,9 @@ endfunction
 function! PrepareOcaml()
     setlocal shiftwidth=2
     setlocal tabstop=2
+    " Quick hack to override rainbow parentheses
+    syntax region ocamlComment start=/(\*/ end=/\*)/
+    hi link ocamlComment Comment
 endfunction
 
 augroup ocaml
