@@ -89,7 +89,11 @@ set laststatus=2  " Always show statusline
 
 " GUI
 set guioptions-=r " Remove right scrollbar
-set nu            " Line numbers
+
+" Display
+set nu         " Line numbers
+set cursorline " Highlight line of cursor
+set incsearch  " Incremental search
 
 " Tabs / Indents
 set autoindent
