@@ -148,8 +148,8 @@ function! EnableOcamlRecipe()
                 \(* Data Definitions<cr>
                 \_ *)<cr><cr>
                 \(* Examples *)<cr><cr>
-                \(* Inputs: _ *)<cr>
-                \(* Outputs: _ *)<cr><cr><cr>
+                \(* Inputs: _<cr>
+                \Outputs: _ *)<cr><cr><cr>
                 \"Test cases for _:" ;;
 endfunction
 
