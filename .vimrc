@@ -16,7 +16,7 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 
 " Display
-Plug 'arcticicestudio/nord-vim'
+Plug 'whybin/Transient-256'
 Plug 'airblade/vim-gitgutter'
 
 " Navigation
@@ -69,10 +69,14 @@ let g:easy_align_delimiters = {
 \ }
 " }}}
 " Color scheme {{{
-colorscheme nord
+colorscheme Transient
 set background=dark
 set synmaxcol=200 " Syntax highlighting max chars
 " }}}
+" GitGutter {{{
+hi! link GitGutterAdd DiffAdd
+hi! link GitGutterChange DiffChange
+hi! link GitGutterDelete DiffDelete
 " }}}
 
 set encoding=utf8
