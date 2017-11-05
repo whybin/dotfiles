@@ -83,9 +83,8 @@ set encoding=utf8
 set lazyredraw
 
 " Status
-set statusline=%f\ %#diffadd#\ BUF\ %02n\ »\ COL\ %02c\ %#matchparen#
-" TODO: Move to autocommand
-set statusline+=\ %{system('git\ rev-parse\ --abbrev-ref\ HEAD\ 2>\ /dev/null\ \|\ xargs\ printf\ \"*%s\"')}
+set statusline=%f\ %#visual#\ BUF\ %02n\ »\ COL\ %02c\ %#matchparen#
+" set statusline+=\ %{system('git\ rev-parse\ --abbrev-ref\ HEAD\ 2>\ /dev/null\ \|\ xargs\ printf\ \"*%s\"')}
 set laststatus=2  " Always show statusline
 
 " GUI
