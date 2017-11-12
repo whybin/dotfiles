@@ -21,6 +21,10 @@ Plug 'airblade/vim-gitgutter'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
+if !empty(glob('/usr/local/opt/fzf'))
+    Plug '/usr/local/opt/fzf'
+    Plug 'junegunn/fzf.vim'
+endif
 
 call plug#end()                   " Calls `filetype plugin indent on` and `syntax enable`
 " ------------
@@ -74,6 +78,9 @@ set synmaxcol=200 " Syntax highlighting max chars
 hi! link GitGutterAdd DiffAdd
 hi! link GitGutterChange DiffChange
 hi! link GitGutterDelete DiffDelete
+" }}}
+" fzf.vim {{{
+nnoremap <Leader>ff :Files<cr>
 " }}}
 
 set encoding=utf8
