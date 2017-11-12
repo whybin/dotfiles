@@ -22,9 +22,6 @@ Plug 'airblade/vim-gitgutter'
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
 
-" Misc
-Plug '~/.vim/forks/vimwiki'
-
 call plug#end()                   " Calls `filetype plugin indent on` and `syntax enable`
 " ------------
 
