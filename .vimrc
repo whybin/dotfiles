@@ -94,7 +94,7 @@ let g:easy_align_delimiters = {
 \ }
 " }}}
 " Color scheme {{{
-colorscheme Transient
+colorscheme transient
 set background=dark
 set synmaxcol=200 " Syntax highlighting max chars
 " }}}
@@ -131,12 +131,13 @@ set shiftwidth=4
 set tabstop=4
 
 " Line breaks/wrapping
-set lbr  " Automatic linebreaks
+set lbr            " Automatic linebreaks
 set textwidth=80
-set colorcolumn=80
-set wrap " Line wrap
+set colorcolumn=+1 " Set to 1 column after `textwidth`
+set wrap           " Line wrap
 
-set foldmethod=marker   " Use {{{ and }}} for code folding
+set backspace=indent,start " Allow backspacing over autoindent & start of insert
+set foldmethod=marker      " Use {{{ and }}} for code folding
 
 " Autocompletion
 set complete+=k
