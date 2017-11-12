@@ -29,6 +29,30 @@ endif
 call plug#end()                   " Calls `filetype plugin indent on` and `syntax enable`
 " ------------
 
+" -------------
+" Custom remaps {{{
+" -------------
+
+let mapleader='-'
+set showcmd " Show commands in lower right corner
+" Shows Leader if `showcmd` enabled
+map <Space> <Leader>
+
+inoremap jk <Esc>
+inoremap JK <Esc>
+
+" Previously looks up the man page of the command
+nnoremap K k
+
+nnoremap <Leader>sv :source ~/.vimrc<Cr>
+nnoremap <Leader>g :!git<Space>
+" Copy everything to system clipboard
+nnoremap y* ggVG"+y''
+
+" -------------
+" }}}
+" -------------
+
 " Rainbow Parentheses {{{
 augroup rainbow_lisp
   autocmd!
@@ -116,29 +140,6 @@ set foldmethod=marker   " Use {{{ and }}} for code folding
 
 " Autocompletion
 set complete+=k
-
-" -------------
-" Custom remaps {{{
-" -------------
-
-let mapleader='-'
-set showcmd " Show commands in lower right corner
-" Shows Leader if `showcmd` enabled
-map <Space> <Leader>
-
-inoremap jk <Esc>
-inoremap JK <Esc>
-
-" Previously looks up the man page of the command
-nnoremap K k
-
-nnoremap <Leader>sv :source ~/.vimrc<Cr>
-" Copy everything to system clipboard
-nnoremap y* ggVG"+y''
-
-" -------------
-" }}}
-" -------------
 
 " Change cursor shape between insert and normal mode
 let &t_SI = "\<Esc>[5 q"
