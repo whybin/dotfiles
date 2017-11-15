@@ -118,6 +118,10 @@ set nu         " Line numbers
 set cursorline " Highlight line of cursor
 set incsearch  " Incremental search
 
+" Wildmenu
+set wildmenu           " Command line completion highlighting
+set wildmode=list:full " <Tab> on command line lists & cycles through matches
+
 " Tabs / Indents
 set autoindent
 set smartindent
