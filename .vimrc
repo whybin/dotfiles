@@ -4,12 +4,12 @@
 call plug#begin('~/.vim/plugged') " Plugin directory
 
 " Languages/completion
-Plug 'othree/yajs.vim'            " JavaScript Syntax - Do not use with any other
+Plug 'othree/yajs.vim'           " JavaScript Syntax - Do not use with any other
 Plug 'othree/html5.vim'
-Plug 'digitaltoad/vim-pug'        " Pug template engine syntax
+Plug 'digitaltoad/vim-pug'       " Pug template engine syntax
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'Shougo/neocomplete.vim'     " Autocompletion
 Plug 'kitao/unity_dict'
+Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
 " Formatting
 Plug 'tpope/vim-commentary'
@@ -59,15 +59,12 @@ augroup rainbow_lisp
   autocmd FileType lisp,clojure,scheme,ocaml RainbowParentheses
 augroup END
 " }}}
-" Neoclomplete {{{
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
+" Mucomplete {{{
+set completeopt+=menuone,noinsert
+set shortmess+=c " Hide completion messages
 
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:mucomplete#enable_auto_at_startup = 1
+inoremap <expr> <cr> mucomplete#popup_exit("\<cr>")
 " }}}
 " Unity dict {{{
 au! BufNewFile,BufRead *.cs execute 'setlocal dictionary+=~/.vim/plugged/unity_dict/unity.dict'
