@@ -113,9 +113,6 @@ set statusline=%f\ %#visual#\ BUF\ %02n\ »\ COL\ %02c\ %#matchparen#
 " set statusline+=\ %{system('git\ rev-parse\ --abbrev-ref\ HEAD\ 2>\ /dev/null\ \|\ xargs\ printf\ \"*%s\"')}
 set laststatus=2  " Always show statusline
 
-" GUI
-set guioptions-=r " Remove right scrollbar
-
 " Display
 set nu         " Line numbers
 set cursorline " Highlight line of cursor
