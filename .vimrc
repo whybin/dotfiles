@@ -43,6 +43,7 @@ inoremap JK <Esc>
 
 " Previously looks up the man page of the command
 nnoremap K k
+vnoremap K k
 
 nnoremap <Leader>sv :source ~/.vimrc<Cr>
 nnoremap <Leader>g :!git<Space>
