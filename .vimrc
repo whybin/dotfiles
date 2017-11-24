@@ -112,6 +112,8 @@ set lazyredraw
 set nu         " Line numbers
 set cursorline " Highlight line of cursor
 set incsearch  " Incremental search
+" No visual bell
+set vb t_vb=
 
 " Wildmenu
 set wildmenu           " Command line completion highlighting
