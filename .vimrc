@@ -108,11 +108,6 @@ nnoremap <Leader>ff :Files<cr>
 set encoding=utf8
 set lazyredraw
 
-" Status
-set statusline=%f\ %#visual#\ BUF\ %02n\ »\ COL\ %02c\ %#matchparen#
-" set statusline+=\ %{system('git\ rev-parse\ --abbrev-ref\ HEAD\ 2>\ /dev/null\ \|\ xargs\ printf\ \"*%s\"')}
-set laststatus=2  " Always show statusline
-
 " Display
 set nu         " Line numbers
 set cursorline " Highlight line of cursor
@@ -144,6 +139,21 @@ set complete+=k
 " Change cursor shape between insert and normal mode
 let &t_SI = "\<Esc>[5 q"
 let &t_EI = "\<Esc>[1 q"
+
+" ----------
+" StatusLine {{{
+" ----------
+function! SetStatusLine()
+    let status=' %f %#MatchParen# BUF %02n » COL %02c %#Underlined# '
+                \. system('git symbolic-ref --short HEAD 2> /dev/null '
+                         \. '| xargs printf "*%s"')
+    return status
+endfunction
+set statusline=%!SetStatusLine()
+set laststatus=2  " Always show statusline
+" ----------
+" }}}
+" ----------
 
 " --------
 " OCaml {{{
