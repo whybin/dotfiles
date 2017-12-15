@@ -165,16 +165,6 @@ set laststatus=2  " Always show statusline
 " --------
 " OCaml {{{
 " --------
-function! EnableOcamlRecipe()
-    noreabbrev _DR #use "CS17setup.ml" ;;<cr><cr>
-                \(* Data Definitions<cr>
-                \_ *)<cr><cr>
-                \(* Examples *)<cr><cr>
-                \(* Inputs: _<cr>
-                \Outputs: _ *)<cr><cr><cr>
-                \"Test cases for _:" ;;
-endfunction
-
 function! PrepareOcaml()
     setlocal shiftwidth=2
     setlocal tabstop=2
@@ -185,7 +175,6 @@ endfunction
 
 augroup ocaml
     au!
-    au BufNewFile,BufRead *.ml call EnableOcamlRecipe()
     au BufNewFile,BufRead *.ml call PrepareOcaml()
 augroup END
 " --------
