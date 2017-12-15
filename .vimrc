@@ -112,9 +112,10 @@ set encoding=utf8
 set lazyredraw
 
 " Display
-set nu         " Line numbers
-set cursorline " Highlight line of cursor
-set incsearch  " Incremental search
+set nu                   " Line numbers
+set cursorline           " Highlight line of cursor
+set incsearch            " Incremental search
+set completeopt-=preview " Disable scratch preview window
 " No visual bell
 set vb t_vb=
 
