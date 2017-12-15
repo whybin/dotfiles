@@ -50,6 +50,9 @@ nnoremap <Leader>g :!git<Space>
 " Copy everything to system clipboard
 nnoremap y* ggVG"+y''
 
+" Save read-only files: https://stackoverflow.com/a/7078429
+cnoremap w!! w !sudo tee > /dev/null %
+
 " -------------
 " }}}
 " -------------
