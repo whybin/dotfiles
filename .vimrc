@@ -150,9 +150,10 @@ let &t_EI = "\<Esc>[1 q"
 " StatusLine {{{
 " ----------
 function! SetStatusLine()
-    let status=' %f %#MatchParen# BUF %02n » COL %02c %#Underlined# '
-                \. system('git symbolic-ref --short HEAD 2> /dev/null '
-                         \. '| xargs printf "*%s"')
+    " Silence 'stray characters' from scrolling
+    silent let status=' %f %#MatchParen# BUF %02n » COL %02c %#Underlined# '
+                     \. system('git symbolic-ref --short HEAD 2> /dev/null '
+                              \. '| xargs printf "*%s"')
     return status
 endfunction
 set statusline=%!SetStatusLine()
