@@ -288,3 +288,51 @@ nnoremap <silent> \b :<C-U>call IndentWord(v:true)<CR>
 " --------------
 " }}}
 " --------------
+
+" ------------
+" Safe Vim {{{
+" ------------
+
+" Use for people who aren't as familiar with Vim
+let s:safeModeOn=0
+
+function! EnterSafeVim()
+    set mouse=a
+    " Copy
+    xnoremap <C-c> "+y
+    " Paste
+    inoremap <C-v> <C-r>+
+    set backspace+=eol " Enable backspacing across lines
+    startinsert
+endfunction
+
+function! ExitSafeVim()
+    echo 'Safe mode OFF'
+    set mouse=
+    if mapcheck('<C-c>', 'x') != ''
+        xunmap <C-c>
+    endif
+    if mapcheck('<C-v>', 'i') != ''
+        iunmap <C-v>
+    endif
+    if mapcheck('<C-s>', 'i') != ''
+        iunmap <C-s>
+    endif
+    set backspace-=eol
+endfunction
+
+function! ToggleSafeVim()
+    let s:safeModeOn=!s:safeModeOn
+    if s:safeModeOn
+        call EnterSafeVim()
+    else
+        call ExitSafeVim()
+    endif
+endfunction
+
+nnoremap <silent> <Leader>sa :call ToggleSafeVim()<cr>
+autocmd! SourceCmd call ExitSafeVim()
+
+" ------------
+" }}}
+" ------------
