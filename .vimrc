@@ -8,7 +8,6 @@ Plug 'othree/yajs.vim'           " JavaScript Syntax - Do not use with any other
 Plug 'othree/html5.vim'
 Plug 'digitaltoad/vim-pug'       " Pug template engine syntax
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'kitao/unity_dict'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
 " Formatting
@@ -69,9 +68,6 @@ set shortmess+=c " Hide completion messages
 
 let g:mucomplete#enable_auto_at_startup = 1
 inoremap <expr> <cr> mucomplete#popup_exit("\<cr>")
-" }}}
-" Unity dict {{{
-au! BufNewFile,BufRead *.cs execute 'setlocal dictionary+=~/.vim/plugged/unity_dict/unity.dict'
 " }}}
 " Vim Commentary {{{
 au! FileType ocaml setlocal commentstring=(*\ %s\ *)
