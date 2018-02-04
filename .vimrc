@@ -67,6 +67,7 @@ set completeopt+=menuone,noinsert
 set shortmess+=c " Hide completion messages
 
 let g:mucomplete#enable_auto_at_startup = 1
+let g:mucomplete#chains = { 'default': ['file', 'incl', 'user'] }
 inoremap <expr> <cr> mucomplete#popup_exit("\<cr>")
 " }}}
 " Vim Commentary {{{
