@@ -5,8 +5,7 @@ call plug#begin('~/.vim/plugged') " Plugin directory
 
 " Languages/completion
 Plug 'othree/yajs.vim'           " JavaScript Syntax - Do not use with any other
-Plug 'othree/html5.vim'
-Plug 'digitaltoad/vim-pug'       " Pug template engine syntax
+Plug 'mxw/vim-jsx'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
@@ -15,15 +14,11 @@ Plug 'tpope/vim-commentary'
 Plug 'junegunn/vim-easy-align'
 
 " Display
-Plug 'whybin/Transient-256'
+Plug 'whybin/Transient-256' " Personally customized
 Plug 'airblade/vim-gitgutter'
 
 " Navigation
 Plug 'christoomey/vim-tmux-navigator'
-if !empty(glob('/usr/local/opt/fzf'))
-    Plug '/usr/local/opt/fzf'
-    Plug 'junegunn/fzf.vim'
-endif
 
 call plug#end()                   " Calls `filetype plugin indent on` and `syntax enable`
 " ------------
@@ -100,9 +95,6 @@ set synmaxcol=200 " Syntax highlighting max chars
 hi! link GitGutterAdd DiffAdd
 hi! link GitGutterChange DiffChange
 hi! link GitGutterDelete DiffDelete
-" }}}
-" fzf.vim {{{
-nnoremap <Leader>ff :Files<cr>
 " }}}
 
 set encoding=utf8
