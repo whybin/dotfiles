@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged') " Plugin directory
 " Languages/completion
 Plug 'othree/yajs.vim'           " JavaScript Syntax - Do not use with any other
 Plug 'mxw/vim-jsx'
+Plug 'rust-lang/rust.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
