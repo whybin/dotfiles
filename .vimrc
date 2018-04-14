@@ -115,11 +115,16 @@ set wildmenu           " Command line completion highlighting
 set wildmode=list:full " <Tab> on command line lists & cycles through matches
 
 " Tabs / Indents
-set autoindent
-set smartindent
 set expandtab " Expand to equivalent # of spaces
 set shiftwidth=4
 set tabstop=4
+set autoindent
+set cindent
+" m1 -> line up closing parentheses with line with opening parentheses
+" (1s -> indent 1 shiftwidth after unclosed parentheses
+" J1 => Indents JavaScript object keys
+" j1 => Indents anonymous functions
+set cinoptions=m1,(1s,J1,j1
 
 " Line breaks/wrapping
 set lbr            " Automatic linebreaks
@@ -156,10 +161,31 @@ set laststatus=2  " Always show statusline
 " }}}
 " ----------
 
+" ----------------
+" IndentHelper {{{
+" ----------------
+function! IndentHelper()
+    let l:prevlnum = v:lnum - 1
+    " Handle opening square bracket
+    if getline(l:prevlnum) =~ '\[ *$' && getline(v:lnum) !~ '^ *\]'
+        return cindent(l:prevlnum) + shiftwidth()
+    else
+        return cindent(v:lnum)
+    endif
 endfunction
-
-augroup END
+" ----------------
 " }}}
+" ----------------
+
+" --------------
+" JavaScript {{{
+" --------------
+augroup js
+    au FileType javascript setlocal indentexpr=IndentHelper()
+augroup END
+" --------------
+" }}}
+" --------------
 
 " --------------
 " IndentWord {{{
