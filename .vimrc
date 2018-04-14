@@ -91,7 +91,6 @@ let g:easy_align_delimiters = {
 " }}}
 " Color scheme {{{
 colorscheme transient
-set background=dark
 set synmaxcol=200 " Syntax highlighting max chars
 " }}}
 " GitGutter {{{
@@ -157,24 +156,10 @@ set laststatus=2  " Always show statusline
 " }}}
 " ----------
 
-" --------
-" OCaml {{{
-" --------
-function! PrepareOcaml()
-    setlocal shiftwidth=2
-    setlocal tabstop=2
-    " Quick hack to override rainbow parentheses
-    syntax region ocamlComment start=/(\*/ end=/\*)/
-    hi link ocamlComment Comment
 endfunction
 
-augroup ocaml
-    au!
-    au BufNewFile,BufRead *.ml call PrepareOcaml()
 augroup END
-" --------
 " }}}
-" --------
 
 " --------------
 " IndentWord {{{
