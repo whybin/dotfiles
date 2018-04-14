@@ -48,6 +48,8 @@ nnoremap y* ggVG"+y''
 " Save read-only files: https://stackoverflow.com/a/7078429
 cnoremap w!! w !sudo tee > /dev/null %
 
+nnoremap <Leader>J :call JoinParagraphs()<Cr>
+
 " -------------
 " }}}
 " -------------
@@ -135,6 +137,9 @@ set complete+=k
 " Change cursor shape between insert and normal mode
 let &t_SI = "\<Esc>[5 q"
 let &t_EI = "\<Esc>[1 q"
+
+" When joining lines, do not insert 2 spaces after end punctuation
+set nojoinspaces
 
 " ----------
 " StatusLine {{{
@@ -278,3 +283,15 @@ nnoremap <silent> \b :<C-U>call IndentWord(v:true)<CR>
 " --------------
 " }}}
 " --------------
+
+" --------------------
+" JoinParagraphs {{{
+" --------------------
+function! JoinParagraphs()
+    norm! Go
+    global/.\n\n/norm! vipJ
+    norm! Gdd
+endfunction
+" --------------------
+" }}}
+" --------------------
