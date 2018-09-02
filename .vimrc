@@ -306,7 +306,6 @@ nnoremap <silent> \b :<C-U>call IndentWord(v:true)<CR>
 function! JoinParagraphs()
     norm! Go
     global/.\n\n/norm! vipJ
-    norm! Gdd
 endfunction
 " --------------------
 " }}}
