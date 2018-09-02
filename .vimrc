@@ -5,8 +5,11 @@ call plug#begin('~/.vim/plugged') " Plugin directory
 
 " Languages/completion
 Plug 'othree/yajs.vim'           " JavaScript Syntax - Do not use with any other
-Plug 'mxw/vim-jsx'
+Plug 'digitaltoad/vim-jade'
 Plug 'rust-lang/rust.vim'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'hdima/python-syntax'
+Plug 'neovimhaskell/haskell-vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
@@ -54,10 +57,15 @@ nnoremap <Leader>J :call JoinParagraphs()<Cr>
 " }}}
 " -------------
 
+let g:python3_host_prog = '/usr/local/bin/python3'
+" Python Syntax {{{
+let python_highlight_space_errors = 0
+let python_highlight_all = 1
+" }}}
 " Rainbow Parentheses {{{
-augroup rainbow_lisp
+augroup rainbow_parens
   autocmd!
-  autocmd FileType lisp,clojure,scheme,ocaml RainbowParentheses
+  autocmd FileType lisp,clojure,scheme,ocaml,haskell RainbowParentheses
 augroup END
 " }}}
 " Mucomplete {{{
@@ -67,9 +75,6 @@ set shortmess+=c " Hide completion messages
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = { 'default': ['file', 'incl', 'user'] }
 inoremap <expr> <cr> mucomplete#popup_exit("\<cr>")
-" }}}
-" Vim Commentary {{{
-au! FileType ocaml setlocal commentstring=(*\ %s\ *)
 " }}}
 " Vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -160,6 +165,11 @@ set laststatus=2  " Always show statusline
 " ----------
 " }}}
 " ----------
+
+augroup filetypeset
+    autocmd BufNewFile,BufRead *.hbs set syntax=html
+    autocmd BufNewFile,BufRead *.asm set filetype=nasm
+augroup END
 
 " ----------------
 " IndentHelper {{{
