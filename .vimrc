@@ -310,3 +310,26 @@ endfunction
 " --------------------
 " }}}
 " --------------------
+
+" --------------------
+" ClearRegisters {{{
+" --------------------
+function! ClearRegisters()
+    " https://stackoverflow.com/a/39348498
+    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+    " using `let` to reset registers does not appear to persist
+    " trailing space intentional
+    norm! A 
+    for r in regs
+        exec 'norm! "' . r . 'yl'
+    endfor
+    norm! u
+endfunction
+" --------------------
+" }}}
+" --------------------
+
+augroup Exit
+    au!
+    autocmd VimLeavePre * call ClearRegisters()
+augroup END
