@@ -172,7 +172,7 @@ augroup filetypeset
 augroup END
 
 " ----------------
-" IndentHelper {{{
+" Indenting {{{
 " ----------------
 function! IndentHelper()
     let l:prevlnum = v:lnum - 1
@@ -183,14 +183,9 @@ function! IndentHelper()
         return cindent(v:lnum)
     endif
 endfunction
-" ----------------
-" }}}
-" ----------------
 
-" --------------
-" JavaScript {{{
-" --------------
-augroup js
+augroup indenting
+    au FileType text setlocal nocindent nosmartindent indentexpr=
     au FileType javascript setlocal indentexpr=IndentHelper()
 augroup END
 " --------------
