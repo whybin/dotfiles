@@ -171,6 +171,10 @@ augroup filetypeset
     autocmd BufNewFile,BufRead *.asm set filetype=nasm
 augroup END
 
+augroup spelling
+    autocmd BufNewFile,BufRead *.txt setlocal spell
+augroup END
+
 " ----------------
 " Indenting {{{
 " ----------------
