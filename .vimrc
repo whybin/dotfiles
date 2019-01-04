@@ -337,3 +337,29 @@ augroup Exit
     au!
     autocmd VimLeavePre * call ClearRegisters()
 augroup END
+
+" ------------------------
+" SendKeybaseMessage {{{
+" ------------------------
+" Send file contents to the user specified by the filename's root,
+" e.g. ./username or ./username.txt
+function! SendKeybaseMessage()
+    " Stop upon first exception caught
+    try
+        write
+        let recipient = expand("%:t:r")
+        let fileName = expand("%")
+        let shellCmd = printf(
+                    \"!keybase chat send %s \"$(cat %s)\"", recipient, fileName)
+        call execute(shellCmd)
+        " ! to ignore custom mappings
+        " Clear buffer
+        norm! ggVGd
+        startinsert
+    endtry
+endfunction
+
+nnoremap <Leader>s :<C-U>call SendKeybaseMessage()<CR>
+" ------------------------
+" }}}
+" ------------------------
