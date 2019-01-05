@@ -348,10 +348,10 @@ function! SendKeybaseMessage()
     try
         write
         let recipient = expand("%:t:r")
-        let fileName = expand("%")
-        let shellCmd = printf(
-                    \"!keybase chat send %s \"$(cat %s)\"", recipient, fileName)
-        call execute(shellCmd)
+        let shellCmd = printf("keybase chat send %s", recipient)
+        let bufferNum = bufnr("%")
+        " Send contents of current buffer to standard input
+        silent call system(shellCmd, bufferNum)
         " ! to ignore custom mappings
         " Clear buffer
         norm! ggVGd
