@@ -74,7 +74,6 @@ set shortmess+=c " Hide completion messages
 
 let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#chains = { 'default': ['file', 'incl', 'user'] }
-inoremap <expr> <cr> mucomplete#popup_exit("\<cr>")
 " }}}
 " Vim-easy-align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
