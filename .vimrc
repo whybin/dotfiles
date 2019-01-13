@@ -10,6 +10,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'bumaociyuan/vim-swift'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
