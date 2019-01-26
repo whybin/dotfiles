@@ -28,7 +28,5 @@ function zle-line-init zle-keymap-select {
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-# OPAM configuration
-. ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
+# Fuzzy finder & reverse-i-search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
