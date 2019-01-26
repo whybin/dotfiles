@@ -6,8 +6,8 @@ export PATH=$HOME/.rvm/bin:$PATH
 export ZSH=~/.oh-my-zsh
 export TERM=xterm-256color
 
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+# My custom theme https://gitlab.com/waymark/on-the-lambda
+ZSH_THEME='on-the-lambda'
 
 alias node="rlwrap -a -- node"  # Use readline to access vi-mode key bindings
 
