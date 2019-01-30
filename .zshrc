@@ -1,5 +1,4 @@
 export PATH=/usr/local/bin:$HOME/bin:$PATH
-export PATH=.vim/execs:$PATH
 export PATH=$HOME/Library/Haskell/bin:$PATH
 export PATH=$HOME/.rvm/bin:$PATH
 
