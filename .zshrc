@@ -3,17 +3,18 @@ export PATH=.vim/execs:$PATH
 export PATH=$HOME/Library/Haskell/bin:$PATH
 export PATH=$HOME/.rvm/bin:$PATH
 
-export ZSH=~/.oh-my-zsh
 export TERM=xterm-256color
 
+export HISTFILE=~/.zsh_history
+export SAVEHIST=10000
+export HISTSIZE=10000
+
 # My custom theme https://gitlab.com/waymark/on-the-lambda
-ZSH_THEME='on-the-lambda'
+source ~/.zsh/on-the-lambda.zsh-theme
 
 alias node="rlwrap -a -- node"  # Use readline to access vi-mode key bindings
 
 plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
 
 bindkey -v # Edit commands in vi-mode
 bindkey 'jk' vi-cmd-mode
