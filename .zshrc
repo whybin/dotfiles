@@ -8,6 +8,12 @@ export HISTFILE=~/.zsh_history
 export SAVEHIST=10000
 export HISTSIZE=10000
 
+if [[ $OSTYPE =~ 'darwin' ]]; then
+    alias ls='ls -G'
+elif [[ $OSTYPE == 'linux-gnu' ]]; then
+    alias ls='ls --color=auto'
+fi
+
 # My custom theme https://gitlab.com/waymark/on-the-lambda
 source ~/.zsh/on-the-lambda.zsh-theme
 
