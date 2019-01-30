@@ -112,7 +112,6 @@ set lazyredraw
 
 " Display
 set nu                   " Line numbers
-set cursorline           " Highlight line of cursor
 set incsearch            " Incremental search
 set completeopt-=preview " Disable scratch preview window
 " No visual bell
