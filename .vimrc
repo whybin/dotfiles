@@ -54,6 +54,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 nnoremap <Leader>J :call JoinParagraphs()<Cr>
 
+nnoremap <Leader>m :<C-U>if exists("g:keybase_enable") <Bar>
+            \call SendKeybaseMessage() <Bar> endif<CR>
+
 " -------------
 " }}}
 " -------------
@@ -358,8 +361,6 @@ function! SendKeybaseMessage()
         startinsert
     endtry
 endfunction
-
-nnoremap <Leader>s :<C-U>call SendKeybaseMessage()<CR>
 " ------------------------
 " }}}
 " ------------------------
