@@ -9,6 +9,14 @@ export HISTFILE=~/.zsh_history
 export SAVEHIST=10000
 # Number to search from
 export HISTSIZE=10000
+setopt hist_ignore_all_dups
+
+autoload -U compinit
+compinit
+# Case-insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# Immediately insert first match
+setopt MENU_COMPLETE
 
 # Colorize `ls`
 if [[ $OSTYPE =~ 'darwin' ]]; then
