@@ -5,9 +5,12 @@ export PATH=$HOME/.rvm/bin:$PATH
 export TERM=xterm-256color
 
 export HISTFILE=~/.zsh_history
+# Number of commands to save
 export SAVEHIST=10000
+# Number to search from
 export HISTSIZE=10000
 
+# Colorize `ls`
 if [[ $OSTYPE =~ 'darwin' ]]; then
     alias ls='ls -G'
 elif [[ $OSTYPE == 'linux-gnu' ]]; then
