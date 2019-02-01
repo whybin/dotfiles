@@ -176,6 +176,10 @@ augroup filetypeset
     autocmd BufNewFile,BufRead *.asm set filetype=nasm
 augroup END
 
+augroup style
+    autocmd BufNewFile,BufRead *.rb set tabstop=2 | set shiftwidth=2
+augroup END
+
 augroup spelling
     autocmd BufNewFile,BufRead *.txt setlocal spell
 augroup END
