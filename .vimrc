@@ -11,6 +11,7 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'bumaociyuan/vim-swift'
+Plug 'mlr-msft/vim-loves-dafny', { 'for': 'dafny' }
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
