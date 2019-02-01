@@ -116,6 +116,8 @@ set incsearch            " Incremental search
 set completeopt-=preview " Disable scratch preview window
 " No visual bell
 set vb t_vb=
+" Disable clearing with background color in Vim
+set t_ut=
 
 " Wildmenu
 set wildmenu           " Command line completion highlighting
