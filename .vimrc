@@ -12,6 +12,7 @@ Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'bumaociyuan/vim-swift'
 Plug 'mlr-msft/vim-loves-dafny', { 'for': 'dafny' }
+Plug 'whybin/alloy.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'lifepillar/vim-mucomplete' " Autocompletion
 
@@ -66,6 +67,9 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " Python Syntax {{{
 let python_highlight_space_errors = 0
 let python_highlight_all = 1
+" }}}
+" Alloy Syntax {{{
+let g:alloy_uppercase_types = 1
 " }}}
 " Rainbow Parentheses {{{
 augroup rainbow_parens
